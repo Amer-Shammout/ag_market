@@ -4,7 +4,7 @@ part 'product_model.g.dart';
 
 
 @HiveType(typeId: 0)
-class ProductModel {
+class ProductModel extends HiveObject {
   @HiveField(0)
   final int id;
   @HiveField(1)
