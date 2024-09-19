@@ -1,4 +1,4 @@
-import 'package:ag_market/views/home_view.dart';
+import 'package:ag_market/views/tabs_view.dart';
 import 'package:ag_market/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView>
       ),
       () {
         Navigator.of(context).pushReplacementNamed(
-          HomeView.id,
+          TabsView.id,
         );
       },
     );
