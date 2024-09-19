@@ -1,6 +1,15 @@
+import 'package:ag_market/constants.dart';
+import 'package:ag_market/models/product_model.dart';
+import 'package:ag_market/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Bloc.observer = SimpleBlocObserver();
+  Hive.registerAdapter(ProductModelAdapter());
+  await Hive.openBox<ProductModel>(kFavouriteProductsBox);
   runApp(const MyApp());
 }
 
