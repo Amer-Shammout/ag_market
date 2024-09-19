@@ -1,6 +1,7 @@
 import 'package:ag_market/constants.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/simple_bloc_observer.dart';
+import 'package:ag_market/views/home_view.dart';
 import 'package:ag_market/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,10 +23,15 @@ class AGMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
-      home: SplashView(),
+      routes: {
+        SplashView.id : (context) => const SplashView(),
+        HomeView.id : (context) => HomeView()
+      },
+      initialRoute: SplashView.id,
     );
   }
 }
