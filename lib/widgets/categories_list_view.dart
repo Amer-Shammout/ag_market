@@ -26,6 +26,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             onTap: () {
               currentIndex = index;
               BlocProvider.of<RefreshProductCubit>(context).refreshProducts(widget.categories[index]);
+              category = widget.categories[index];
               setState(() {});
             },
             child: CategoryItem(
@@ -40,4 +41,5 @@ class _CategoriesListViewState extends State<CategoriesListView> {
 }
 
   int currentIndex = 0;
+  String category = 'All';
 

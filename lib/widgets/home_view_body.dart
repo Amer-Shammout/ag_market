@@ -1,8 +1,10 @@
-
+import 'package:ag_market/cubits/cubit/refresh_product_cubit.dart';
+import 'package:ag_market/widgets/categories_list_view.dart';
 import 'package:ag_market/widgets/categories_list_view_builder.dart';
 import 'package:ag_market/widgets/custom_app_bar.dart';
 import 'package:ag_market/widgets/products_list_view_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -11,19 +13,19 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: CustomScrollView(
         scrollDirection: Axis.vertical,
         slivers: [
-          SliverToBoxAdapter(child: CustomAppBar(title: "Home View")),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(child: CustomAppBar(title: "Home View")),
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 24,
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding:  EdgeInsets.only(left: 18.0),
+              padding: EdgeInsets.only(left: 18.0),
               child: Text(
                 'Categories',
                 style: TextStyle(
@@ -34,41 +36,50 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 20,
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 18.0),
+              padding: EdgeInsets.symmetric(horizontal: 18.0),
               child: CategoriesListViewBuilder(),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 28,
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding:  EdgeInsets.only(left: 18.0),
-              child: Text(
-                'All',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
+              padding: const EdgeInsets.only(left: 18.0),
+              child: BlocBuilder<RefreshProductCubit,RefreshProductCubitState>(
+                builder: (context, state) {
+                  return Text(
+                    "${category.substring(0, 1).toUpperCase()}${category.substring(1)}",
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  );
+                },
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 44,
             ),
           ),
-          ProductsListViewBuilder()
+          const ProductsListViewBuilder(),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 32,
+            ),
+          ),
         ],
       ),
     );
