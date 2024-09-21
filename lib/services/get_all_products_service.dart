@@ -6,9 +6,8 @@ class GetAllProductsService {
 
   Future<List<ProductModel>> getAllProducts() async {
     
-    List<dynamic> jsonData =
-        // ignore: missing_required_param
-        await Api(Dio()).get(url: "https://fakestoreapi.com/products");
+    // ignore: missing_required_param
+    List<dynamic> jsonData = await Api(Dio()).get(url: "https://fakestoreapi.com/products");
 
     List<ProductModel> products = [];
 

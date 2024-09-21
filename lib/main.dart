@@ -1,4 +1,7 @@
 import 'package:ag_market/constants.dart';
+import 'package:ag_market/cubits/add_product_to_favourite_cubit/add_product_to_favourite_cubit.dart';
+import 'package:ag_market/cubits/cubit/refresh_product_cubit.dart';
+import 'package:ag_market/cubits/display_favourite_products_cubit/display_favourite_products_cubit_cubit.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/simple_bloc_observer.dart';
 import 'package:ag_market/views/tabs_view.dart';
@@ -23,18 +26,26 @@ class AGMarket extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.poppins().fontFamily,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => RefreshProductCubit()),
+        BlocProvider(create: (context) => AddProductToFavouriteCubit()),
+        BlocProvider(create: (context) => DisplayFavouriteProductsCubit()),
+      ],
+      child: MaterialApp(
+        
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: GoogleFonts.poppins().fontFamily,
+        ),
+        routes: {
+          SplashView.id: (context) => const SplashView(),
+          HomeViewBody.id: (context) => const HomeViewBody(),
+          TabsView.id: (context) => const TabsView()
+        },
+        initialRoute: SplashView.id,
       ),
-      routes: {
-        SplashView.id : (context) => const SplashView(),
-        HomeViewBody.id : (context) => HomeViewBody(),
-        TabsView.id : (context) => TabsView()
-      },
-      initialRoute: SplashView.id,
     );
   }
 }
-

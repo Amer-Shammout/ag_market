@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-const kFavouriteProductsBox = "FavouriteProductsBox";
+const kFavouriteProductsBox = "FavoriteProductsBox";
 const kPrimaryColor = Color(0xffe65634);
 const kNavigationBarDestinations =  [
           NavigationDestination(

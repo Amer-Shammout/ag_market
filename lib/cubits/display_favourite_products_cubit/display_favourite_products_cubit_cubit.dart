@@ -6,14 +6,14 @@ import 'package:meta/meta.dart';
 
 part 'display_favourite_products_cubit_state.dart';
 
-class DisplayFavouriteProductsCubitCubit extends Cubit<DisplayFavouriteProductsCubitState> {
-  DisplayFavouriteProductsCubitCubit() : super(DisplayFavouriteProductsCubitInitial());
+class DisplayFavouriteProductsCubit extends Cubit<DisplayFavouriteProductsState> {
+  DisplayFavouriteProductsCubit() : super(DisplayFavouriteProductsInitial());
 
-  List<ProductModel>products = [];
+  List<ProductModel>? products ;
 
   displayFavouriteProducts(){
     var notesBox = Hive.box<ProductModel>(kFavouriteProductsBox);
       products = notesBox.values.toList();
-      emit(DisplayFavouriteProductsCubitSuccess());
+      emit(DisplayFavouriteProductsSuccess());
   }
 }

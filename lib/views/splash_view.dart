@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(
       const Duration(
-        seconds: 3,
+        seconds: 1,
       ),
       () {
         Navigator.of(context).pushReplacementNamed(

@@ -15,7 +15,7 @@ class TabsView extends StatefulWidget {
 class _TabsViewState extends State<TabsView> {
   int index = 0;
 
-  final pages = [HomeViewBody(), FavouriteViewBody()];
+  final pages = [const HomeViewBody(), FavouriteViewBody()];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _TabsViewState extends State<TabsView> {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         selectedIndex: index,
         indicatorColor: Colors.transparent,
-        onDestinationSelected: (index) => setState(() => this.index = index),
+        onDestinationSelected: (index) =>  setState(() => this.index = index),
         backgroundColor: const Color(0xfffdfdfd),
         height: 70,
         destinations: kNavigationBarDestinations,

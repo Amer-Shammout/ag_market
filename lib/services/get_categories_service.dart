@@ -9,6 +9,7 @@ class GetCategoriesService {
     List<dynamic>jsonData = await Api(Dio()).get(url: "https://fakestoreapi.com/products/categories"); 
 
     List<String>categories = [];
+    categories.add('all');
 
     for (var i = 0; i < jsonData.length; i++) {
       categories.add(jsonData[i]);

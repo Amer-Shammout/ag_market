@@ -7,13 +7,13 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18.0),
-      child: Container(
-        height: 70,
-        width: MediaQuery.of(context).size.width,
-        color: const Color(0xfffdfdfd),
-        child: Center(
+    return Container(
+      height: 70,
+      width: MediaQuery.of(context).size.width,
+      color: const Color(0xfffdfdfd),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -26,12 +26,13 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.shopping_bag,
-                    color: Colors.black,
-                    size: 24,
-                  ))
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.shopping_bag,
+                  color: Colors.black,
+                  size: 24,
+                ),
+              ),
             ],
           ),
         ),
