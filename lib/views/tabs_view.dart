@@ -15,7 +15,7 @@ class TabsView extends StatefulWidget {
 class _TabsViewState extends State<TabsView> {
   int index = 0;
 
-  final pages = [const HomeViewBody(), FavouriteViewBody()];
+  final pages = [const HomeViewBody(),const FavouriteViewBody()];
 
   @override
   Widget build(BuildContext context) {
