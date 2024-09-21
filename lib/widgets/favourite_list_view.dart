@@ -34,6 +34,7 @@ class _FavouriteListViewState extends State<FavouriteListView> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
           child: GridView.builder(
+            shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             clipBehavior: Clip.none,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

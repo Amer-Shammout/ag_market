@@ -9,17 +9,16 @@ class FavouriteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
-        children: [
-          const CustomAppBar(title: "Favorite"),
-          const SizedBox(
-              height: 48,
-            ),
-             SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: const FavouriteListView(),),
-            const SizedBox(
-              height: 32,
-            ),
+        physics: const BouncingScrollPhysics(),
+        children: const [
+           CustomAppBar(title: "Favorite"),
+           SizedBox(
+            height: 48,
+          ),
+           FavouriteListView(),
+           SizedBox(
+            height: 32,
+          ),
         ],
       ),
     );

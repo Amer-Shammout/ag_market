@@ -15,6 +15,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics() ,
         scrollDirection: Axis.vertical,
         slivers: [
           const SliverToBoxAdapter(child: CustomAppBar(title: "Home View")),
@@ -42,10 +43,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18.0),
-              child: CategoriesListViewBuilder(),
-            ),
+            child: CategoriesListViewBuilder(),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(

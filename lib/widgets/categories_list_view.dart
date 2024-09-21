@@ -29,9 +29,13 @@ class _CategoriesListViewState extends State<CategoriesListView> {
               category = widget.categories[index];
               setState(() {});
             },
-            child: CategoryItem(
-              categoryName: widget.categories[index],
-              isActive: currentIndex == index,
+            child: Padding(
+              // ignore: prefer_is_empty
+              padding:  EdgeInsets.only(left: index == 0 ? 18 : 0 ,right: index == widget.categories.length - 1 ? 18 : 8 ),
+              child: CategoryItem(
+                categoryName: widget.categories[index],
+                isActive: currentIndex == index,
+              ),
             ),
           );
         },
