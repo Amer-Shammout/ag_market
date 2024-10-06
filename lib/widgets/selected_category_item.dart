@@ -20,7 +20,7 @@ class SelectedCategoryItem extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          "${categoryName.substring(0, 1).toUpperCase()}${categoryName.substring(1)}",
+          formatData(categoryName),
           style: const TextStyle(
             color: Colors.white,
             fontSize: 14,
@@ -30,4 +30,9 @@ class SelectedCategoryItem extends StatelessWidget {
       ),
     );
   }
+}
+
+String formatData(String data){
+  String formattedName = "${data.substring(0, 1).toUpperCase()}${data.substring(1)}";
+  return formattedName;
 }

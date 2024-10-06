@@ -1,3 +1,4 @@
+import 'package:ag_market/widgets/selected_category_item.dart';
 import 'package:flutter/material.dart';
 
 class UnSelectedCategoryItem extends StatelessWidget {
@@ -19,7 +20,7 @@ class UnSelectedCategoryItem extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          "${categoryName.substring(0, 1).toUpperCase()}${categoryName.substring(1)}",
+          formatData(categoryName),
           style: TextStyle(
             color: Colors.black.withOpacity(.3),
             fontSize: 14,

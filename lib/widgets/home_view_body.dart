@@ -1,8 +1,9 @@
-import 'package:ag_market/cubits/cubit/refresh_product_cubit.dart';
+import 'package:ag_market/cubits/refresh_product_cubit/refresh_product_cubit.dart';
 import 'package:ag_market/widgets/categories_list_view.dart';
 import 'package:ag_market/widgets/categories_list_view_builder.dart';
 import 'package:ag_market/widgets/custom_app_bar.dart';
 import 'package:ag_market/widgets/products_list_view_builder.dart';
+import 'package:ag_market/widgets/selected_category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
               child: BlocBuilder<RefreshProductCubit,RefreshProductCubitState>(
                 builder: (context, state) {
                   return Text(
-                    "${category.substring(0, 1).toUpperCase()}${category.substring(1)}",
+                    formatData(category),
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w500,

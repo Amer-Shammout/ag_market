@@ -1,6 +1,6 @@
 import 'package:ag_market/constants.dart';
 import 'package:ag_market/cubits/add_product_to_favourite_cubit/add_product_to_favourite_cubit.dart';
-import 'package:ag_market/cubits/cubit/refresh_product_cubit.dart';
+import 'package:ag_market/cubits/refresh_product_cubit/refresh_product_cubit.dart';
 import 'package:ag_market/cubits/display_favourite_products_cubit/display_favourite_products_cubit_cubit.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/simple_bloc_observer.dart';
