@@ -3,6 +3,8 @@ import 'package:ag_market/widgets/favourite_view_body.dart';
 import 'package:ag_market/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
+final GlobalKey<ScaffoldMessengerState> scaffoldKey = GlobalKey();
+
 class TabsView extends StatefulWidget {
   const TabsView({super.key});
 
@@ -23,6 +25,7 @@ class _TabsViewState extends State<TabsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         selectedIndex: index,

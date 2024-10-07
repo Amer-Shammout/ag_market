@@ -45,8 +45,11 @@ class _FavouriteListViewState extends State<FavouriteListView> {
               mainAxisSpacing: 56,
             ),
             itemBuilder: (context, index, animation) {
-              return CustomProductCard(
-                product: products[index],
+              return ScaleTransition(
+                scale: animation,
+                child: CustomProductCard(
+                  product: products[index],
+                ),
               );
             },
           ),

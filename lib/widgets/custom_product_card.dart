@@ -23,23 +23,25 @@ class _CustomProductCardState extends State<CustomProductCard> {
       alignment: Alignment.topCenter,
       clipBehavior: Clip.none,
       children: [
-        Container(
-          width: MediaQuery.of(context).size.width - 38,
-          height: 170,
-          decoration: BoxDecoration(
-            color: const Color(0xfffdfdfd),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 3,
-                color: Colors.black.withOpacity(.25),
-              ),
-            ],
+        AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xfffdfdfd),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 3,
+                  color: Colors.black.withOpacity(.25),
+                ),
+              ],
+            ),
           ),
         ),
-        Container(
-          width: MediaQuery.of(context).size.width - 38,
-          height: 90,
-          color: Colors.white,
+        AspectRatio(
+          aspectRatio: MediaQuery.of(context).size.width/90,
+          child: Container(
+            color: Colors.white,
+          ),
         ),
         Positioned(
           right: 0,

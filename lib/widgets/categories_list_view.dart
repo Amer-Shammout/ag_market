@@ -48,4 +48,4 @@ class _CategoriesListViewState extends State<CategoriesListView> {
 }
 
 int currentIndex = 0;
-String category = 'All';
+String category = 'all';

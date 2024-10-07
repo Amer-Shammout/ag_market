@@ -1,5 +1,8 @@
+import 'package:ag_market/cubits/add_product_to_favourite_cubit/add_product_to_favourite_cubit.dart';
 import 'package:ag_market/cubits/display_favourite_products_cubit/display_favourite_products_cubit_cubit.dart';
+import 'package:ag_market/helper/show_snack_bar.dart';
 import 'package:ag_market/models/product_model.dart';
+import 'package:ag_market/views/tabs_view.dart';
 import 'package:ag_market/widgets/custom_product_card.dart';
 import 'package:ag_market/widgets/favourite_list_view.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +30,9 @@ class DeleteButton extends StatelessWidget {
             ),
           );
         });
+        showSnackBar("Product has deleted\n successfully!", () async {
+          await undoAction(index);
+        });
         BlocProvider.of<DisplayFavouriteProductsCubit>(context)
             .displayFavouriteProducts();
       },
@@ -36,5 +42,15 @@ class DeleteButton extends StatelessWidget {
         color: Colors.black,
       ),
     );
+  }
+
+  Future<void> undoAction(int index) async {
+      await BlocProvider.of<AddProductToFavouriteCubit>(
+            scaffoldKey.currentContext!)
+        .addProduct(product);
+    animatedController.currentState!.insertItem(index);
+    BlocProvider.of<DisplayFavouriteProductsCubit>(
+            scaffoldKey.currentContext!)
+        .displayFavouriteProducts();
   }
 }
