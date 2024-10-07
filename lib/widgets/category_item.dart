@@ -12,12 +12,18 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isActive == true
-        ? SelectedCategoryItem(
-            categoryName: categoryName,
-          )
-        : UnSelectedCategoryItem(
-            categoryName: categoryName,
-          );
+    return AnimatedCrossFade(
+      firstChild: SelectedCategoryItem(
+        categoryName: categoryName,
+      ),
+      secondChild: UnSelectedCategoryItem(
+        categoryName: categoryName,
+      ),
+      crossFadeState:
+          isActive ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      duration: const Duration(
+        milliseconds: 300,
+      ),
+    );
   }
 }
