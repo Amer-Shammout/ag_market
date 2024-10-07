@@ -27,6 +27,7 @@ class HomeViewBody extends StatelessWidget {
               onRefresh: () async {
                 BlocProvider.of<RefreshProductCubit>(context)
                     .refreshProducts(category);
+                    
               },
               child: CustomScrollView(
                 key: const PageStorageKey<String>('saveScroll'),

@@ -1,3 +1,4 @@
+import 'package:ag_market/constants.dart';
 import 'package:ag_market/services/get_categories_service.dart';
 import 'package:ag_market/shimmer/categories_list_view_shimmer.dart';
 import 'package:ag_market/widgets/categories_list_view.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/material.dart';
 
 late Future<List<String>> future;
 bool loadCategoriesFirstTime = true;
+bool hasError = false;
+
 
 class CategoriesListViewBuilder extends StatefulWidget {
   const CategoriesListViewBuilder({super.key});
@@ -17,9 +20,10 @@ class CategoriesListViewBuilder extends StatefulWidget {
 class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
   @override
   void initState() {
-    if (loadCategoriesFirstTime) {
+    if (loadCategoriesFirstTime || hasError) {
       future = GetCategoriesService().getCategories();
       loadCategoriesFirstTime = false;
+      hasError = false;
     }
     super.initState();
   }
@@ -33,7 +37,13 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
           return CategoriesListView(
             categories: snapshot.data!,
           );
-        } else {
+        } else if(snapshot.hasError){
+          hasError = true;
+          return const CategoriesListView(
+            categories: categories,
+          );
+        }
+         else {
           return const CategoriesListViewShimmer();
         }
       },

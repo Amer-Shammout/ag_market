@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 const kFavouriteProductsBox = "FavoriteProductsBox";
 const kPrimaryColor = Color(0xffe65634);
+const categories = [
+  'all',
+  'electronics',
+  'jewelery',
+  'men\'s clothing',
+  'women\'s clothing',
+];
 const kNavigationBarDestinations = [
   NavigationDestination(
     icon: Icon(
