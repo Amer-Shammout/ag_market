@@ -15,6 +15,8 @@ class TabsView extends StatefulWidget {
 }
 
 class _TabsViewState extends State<TabsView> {
+
+  PageController pageController = PageController();
   int index = 0;
 
   final pages = [
@@ -22,24 +24,37 @@ class _TabsViewState extends State<TabsView> {
     const FavouriteViewBody(),
   ];
 
+  void onPageChanged(int index){
+    setState(() {
+      this.index = index;
+    });
+  }
+
+  void onItemTapped(int i){
+    pageController.jumpToPage(i);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
       bottomNavigationBar: NavigationBar(
+
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         selectedIndex: index,
         indicatorColor: Colors.transparent,
-        onDestinationSelected: (index) => setState(
-          () => this.index = index,
-        ),
+        onDestinationSelected: onItemTapped,
         backgroundColor: const Color(
           0xfffdfdfd,
         ),
         height: 70,
         destinations: kNavigationBarDestinations,
       ),
-      body: pages[index],
+      body: PageView(
+        controller: pageController,
+        onPageChanged: onPageChanged,
+        children: pages,
+        ),
     );
   }
 }
