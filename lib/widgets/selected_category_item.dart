@@ -6,19 +6,23 @@ class SelectedCategoryItem extends StatelessWidget {
   const SelectedCategoryItem({
     super.key,
     required this.categoryName,
+    required this.onPressed,
   });
 
   final String categoryName;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return MaterialButton(
       height: 35,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: kPrimaryColor,
+      elevation: 0,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      color: kPrimaryColor,
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
+      onPressed: onPressed,
       child: Center(
         child: Text(
           formatData(categoryName),
@@ -32,5 +36,3 @@ class SelectedCategoryItem extends StatelessWidget {
     );
   }
 }
-
-

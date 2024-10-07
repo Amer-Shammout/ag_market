@@ -4,19 +4,21 @@ import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem(
-      {super.key, required this.categoryName, this.isActive = false});
+      {super.key, required this.categoryName, this.isActive = false, required this.onPressed});
 
   final String categoryName;
-
+  final VoidCallback onPressed;
   final bool isActive;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
       firstChild: SelectedCategoryItem(
+        onPressed: onPressed,
         categoryName: categoryName,
       ),
       secondChild: UnSelectedCategoryItem(
+        onPressed: onPressed,
         categoryName: categoryName,
       ),
       crossFadeState:

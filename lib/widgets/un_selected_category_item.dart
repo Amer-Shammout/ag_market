@@ -5,19 +5,24 @@ class UnSelectedCategoryItem extends StatelessWidget {
   const UnSelectedCategoryItem({
     super.key,
     required this.categoryName,
+    required this.onPressed,
   });
 
+  final VoidCallback onPressed;
   final String categoryName;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 35,
+    return MaterialButton(
+      height: 35, 
+      splashColor: Colors.black12,
+      elevation: 0,
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: const Color(0xffeeeeee),
+      color: const Color(0xffeeeeee),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
+      onPressed: onPressed,
       child: Center(
         child: Text(
           formatData(categoryName),

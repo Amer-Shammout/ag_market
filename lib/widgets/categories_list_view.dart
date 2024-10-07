@@ -22,23 +22,21 @@ class _CategoriesListViewState extends State<CategoriesListView> {
         scrollDirection: Axis.horizontal,
         itemCount: widget.categories.length,
         itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              currentIndex = index;
-              BlocProvider.of<RefreshProductCubit>(context)
-                  .refreshProducts(widget.categories[index]);
-              category = widget.categories[index];
-              setState(() {});
-            },
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: index == 0 ? 18 : 0,
-                right: index == widget.categories.length - 1 ? 18 : 8,
-              ),
-              child: CategoryItem(
-                categoryName: widget.categories[index],
-                isActive: currentIndex == index,
-              ),
+          return Padding(
+            padding: EdgeInsets.only(
+              left: index == 0 ? 18 : 0,
+              right: index == widget.categories.length - 1 ? 18 : 8,
+            ),
+            child: CategoryItem(
+              onPressed:  () {
+            currentIndex = index;
+            BlocProvider.of<RefreshProductCubit>(context)
+                .refreshProducts(widget.categories[index]);
+            category = widget.categories[index];
+            setState(() {});
+          },
+              categoryName: widget.categories[index],
+              isActive: currentIndex == index,
             ),
           );
         },
