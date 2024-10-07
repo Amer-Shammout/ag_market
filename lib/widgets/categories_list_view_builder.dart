@@ -3,6 +3,9 @@ import 'package:ag_market/shimmer/categories_list_view_shimmer.dart';
 import 'package:ag_market/widgets/categories_list_view.dart';
 import 'package:flutter/material.dart';
 
+late Future<List<String>> future;
+bool loadCategoriesFirstTime = true;
+
 class CategoriesListViewBuilder extends StatefulWidget {
   const CategoriesListViewBuilder({super.key});
 
@@ -38,5 +41,4 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
   }
 }
 
-late Future<List<String>> future;
-bool loadCategoriesFirstTime = true;
+
