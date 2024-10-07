@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 const kFavouriteProductsBox = "FavoriteProductsBox";
 const kPrimaryColor = Color(0xffe65634);
@@ -10,30 +11,12 @@ const categories = [
   'women\'s clothing',
 ];
 const kNavigationBarDestinations = [
-  NavigationDestination(
-    icon: Icon(
-      Icons.home_filled,
-      color: Color(0xffE8EAED),
-      size: 30,
-    ),
-    label: '',
-    selectedIcon: Icon(
-      Icons.home_filled,
-      color: kPrimaryColor,
-      size: 30,
-    ),
+  GButton(
+    icon: Icons.home_filled,
+    text: 'Home',
   ),
-  NavigationDestination(
-    icon: Icon(
-      Icons.favorite,
-      color: Color(0xffE8EAED),
-      size: 30,
-    ),
-    label: '',
-    selectedIcon: Icon(
-      Icons.favorite,
-      color: kPrimaryColor,
-      size: 30,
-    ),
-  )
+  GButton(
+    icon: Icons.favorite,
+    text: 'Favourite',
+  ),
 ];
