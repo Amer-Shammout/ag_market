@@ -1,4 +1,5 @@
 import 'package:ag_market/constants.dart';
+import 'package:ag_market/helper/format_data.dart';
 import 'package:flutter/material.dart';
 
 class SelectedCategoryItem extends StatelessWidget {
@@ -32,7 +33,4 @@ class SelectedCategoryItem extends StatelessWidget {
   }
 }
 
-String formatData(String data){
-  String formattedName = "${data.substring(0, 1).toUpperCase()}${data.substring(1)}";
-  return formattedName;
-}
+

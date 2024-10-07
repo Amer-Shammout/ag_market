@@ -1,10 +1,9 @@
 import 'package:ag_market/constants.dart';
 import 'package:ag_market/cubits/refresh_product_cubit/refresh_product_cubit.dart';
+import 'package:ag_market/helper/format_data.dart';
 import 'package:ag_market/widgets/categories_list_view.dart';
-import 'package:ag_market/widgets/categories_list_view_builder.dart';
-import 'package:ag_market/widgets/custom_app_bar.dart';
+import 'package:ag_market/widgets/home_view_custom_app_bar.dart';
 import 'package:ag_market/widgets/products_list_view_builder.dart';
-import 'package:ag_market/widgets/selected_category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(
+          const HomeViewCustomAppBar(
             title: "Home View",
           ),
           Expanded(
@@ -27,7 +26,6 @@ class HomeViewBody extends StatelessWidget {
               onRefresh: () async {
                 BlocProvider.of<RefreshProductCubit>(context)
                     .refreshProducts(category);
-                    
               },
               child: CustomScrollView(
                 key: const PageStorageKey<String>('saveScroll'),
@@ -36,33 +34,7 @@ class HomeViewBody extends StatelessWidget {
                 slivers: [
                   const SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 24,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 18.0),
-                      child: Text(
-                        'Categories',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 20,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: CategoriesListViewBuilder(),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 28,
+                      height: 16,
                     ),
                   ),
                   SliverToBoxAdapter(

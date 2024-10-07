@@ -10,7 +10,7 @@ class FavouriteViewBody extends StatelessWidget {
     return const SafeArea(
       child: Column(
         children: [
-          CustomAppBar(
+          GeneralCustomAppBar(
             title: "Favorite",
           ),
           Expanded(

@@ -1,8 +1,8 @@
 import 'package:ag_market/constants.dart';
+import 'package:ag_market/helper/format_data.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/widgets/delete_button.dart';
 import 'package:ag_market/widgets/favorite_button.dart';
-import 'package:ag_market/widgets/selected_category_item.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +82,7 @@ class _CustomProductCardState extends State<CustomProductCard> {
                 height: 4,
               ),
               Text(
-                widget.product.title.substring(0, 6),
+                "${widget.product.title.substring(0, 6)}...",
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
