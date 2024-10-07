@@ -33,7 +33,6 @@ class AGMarket extends StatelessWidget {
         BlocProvider(create: (context) => DisplayFavouriteProductsCubit()),
       ],
       child: MaterialApp(
-        
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,

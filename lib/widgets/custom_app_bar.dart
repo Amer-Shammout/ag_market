@@ -11,8 +11,12 @@ class CustomAppBar extends StatelessWidget {
       height: 70,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
-      color: Color(0xfffdfdfd),
-      border: Border(bottom:  BorderSide(color: Colors.black12))
+        color: Color(0xfffdfdfd),
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black12,
+          ),
+        ),
       ),
       child: Center(
         child: Padding(

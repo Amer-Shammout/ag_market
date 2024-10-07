@@ -24,8 +24,11 @@ class CategoriesListViewShimmer extends StatelessWidget {
                   height: 35,
                   width: 100,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(
+                      8,
+                    ),
+                  ),
                 ),
               ),
             );

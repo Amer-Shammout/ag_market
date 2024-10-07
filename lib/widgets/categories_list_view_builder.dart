@@ -7,18 +7,16 @@ class CategoriesListViewBuilder extends StatefulWidget {
   const CategoriesListViewBuilder({super.key});
 
   @override
-  State<CategoriesListViewBuilder> createState() => _CategoriesListViewBuilderState();
+  State<CategoriesListViewBuilder> createState() =>
+      _CategoriesListViewBuilderState();
 }
 
 class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
-  
-  
-
   @override
   void initState() {
-    if(flag2){
-    future = GetCategoriesService().getCategories();
-    flag2 = false;
+    if (loadCategoriesFirstTime) {
+      future = GetCategoriesService().getCategories();
+      loadCategoriesFirstTime = false;
     }
     super.initState();
   }
@@ -29,7 +27,9 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return CategoriesListView(categories: snapshot.data!,);
+          return CategoriesListView(
+            categories: snapshot.data!,
+          );
         } else {
           return const CategoriesListViewShimmer();
         }
@@ -39,4 +39,4 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
 }
 
 late Future<List<String>> future;
-bool flag2 = true;
+bool loadCategoriesFirstTime = true;

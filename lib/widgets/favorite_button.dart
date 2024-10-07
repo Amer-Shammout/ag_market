@@ -44,6 +44,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
               await BlocProvider.of<AddProductToFavouriteCubit>(context)
                   .addProduct(widget.product);
               setState(() {});
+              // ignore: use_build_context_synchronously
               BlocProvider.of<DisplayFavouriteProductsCubit>(context)
                   .displayFavouriteProducts();
               isActive = true;
@@ -52,7 +53,9 @@ class _FavouriteButtonState extends State<FavouriteButton> {
             icon: const Icon(
               Icons.favorite,
               size: 26,
-              color: Color(0xffE8EAED),
+              color: Color(
+                0xffE8EAED,
+              ),
             ),
           );
   }

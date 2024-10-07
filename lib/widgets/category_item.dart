@@ -3,7 +3,8 @@ import 'package:ag_market/widgets/un_selected_category_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.categoryName ,this.isActive =false});
+  const CategoryItem(
+      {super.key, required this.categoryName, this.isActive = false});
 
   final String categoryName;
 
@@ -12,8 +13,11 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isActive == true
-        ? SelectedCategoryItem(categoryName: categoryName)
-        : UnSelectedCategoryItem(categoryName: categoryName);
+        ? SelectedCategoryItem(
+            categoryName: categoryName,
+          )
+        : UnSelectedCategoryItem(
+            categoryName: categoryName,
+          );
   }
 }
-

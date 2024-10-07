@@ -2,6 +2,7 @@ import 'package:ag_market/constants.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/widgets/delete_button.dart';
 import 'package:ag_market/widgets/favorite_button.dart';
+import 'package:ag_market/widgets/selected_category_item.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,10 @@ class _CustomProductCardState extends State<CustomProductCard> {
           decoration: BoxDecoration(
             color: const Color(0xfffdfdfd),
             boxShadow: [
-              BoxShadow(blurRadius: 3, color: Colors.black.withOpacity(.25))
+              BoxShadow(
+                blurRadius: 3,
+                color: Colors.black.withOpacity(.25),
+              ),
             ],
           ),
         ),
@@ -64,7 +68,9 @@ class _CustomProductCardState extends State<CustomProductCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${widget.product.category.substring(0, 1).toUpperCase()}${widget.product.category.substring(1)}",
+                formatData(
+                  widget.product.category,
+                ),
                 style: const TextStyle(
                   fontSize: 11,
                   color: kPrimaryColor,
@@ -76,9 +82,10 @@ class _CustomProductCardState extends State<CustomProductCard> {
               Text(
                 widget.product.title.substring(0, 6),
                 style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700),
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               const SizedBox(
                 height: 6,
@@ -86,9 +93,10 @@ class _CustomProductCardState extends State<CustomProductCard> {
               Text(
                 r'$' + widget.product.price.toString(),
                 style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400),
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ],
           ),
@@ -110,5 +118,3 @@ class _CustomProductCardState extends State<CustomProductCard> {
     );
   }
 }
-
-

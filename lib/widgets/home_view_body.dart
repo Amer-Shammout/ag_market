@@ -17,11 +17,13 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(title: "Home View"),
+          const CustomAppBar(
+            title: "Home View",
+          ),
           Expanded(
             child: CustomScrollView(
-              key:  const PageStorageKey<String>('saveScroll'),
-              physics: const BouncingScrollPhysics() ,
+              key: const PageStorageKey<String>('saveScroll'),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               slivers: [
                 const SliverToBoxAdapter(
@@ -57,8 +59,11 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: BlocBuilder<RefreshProductCubit,RefreshProductCubitState>(
+                    padding: const EdgeInsets.only(
+                      left: 18.0,
+                    ),
+                    child: BlocBuilder<RefreshProductCubit,
+                        RefreshProductCubitState>(
                       builder: (context, state) {
                         return Text(
                           formatData(category),

@@ -7,7 +7,9 @@ class ProductsListViewShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 18,
+      ),
       sliver: SliverGrid.builder(
         itemCount: 8,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
