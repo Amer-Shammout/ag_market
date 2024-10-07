@@ -8,16 +8,22 @@ class FavouriteViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: const [
-           CustomAppBar(title: "Favorite"),
-           SizedBox(
-            height: 48,
-          ),
-           FavouriteListView(),
-           SizedBox(
-            height: 32,
+      child: Column(
+        children: [
+          const CustomAppBar(title: "Favorite"),
+          Expanded(
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: const [
+                SizedBox(
+                  height: 48,
+                ),
+                FavouriteListView(),
+                SizedBox(
+                  height: 32,
+                ),
+              ],
+            ),
           ),
         ],
       ),

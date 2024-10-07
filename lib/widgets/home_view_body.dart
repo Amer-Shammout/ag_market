@@ -15,68 +15,75 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: CustomScrollView(
-        physics: const BouncingScrollPhysics() ,
-        scrollDirection: Axis.vertical,
-        slivers: [
-          const SliverToBoxAdapter(child: CustomAppBar(title: "Home View")),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 24,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 18.0),
-              child: Text(
-                'Categories',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
+      child: Column(
+        children: [
+          const CustomAppBar(title: "Home View"),
+          Expanded(
+            child: CustomScrollView(
+              key:  const PageStorageKey<String>('saveScroll'),
+              physics: const BouncingScrollPhysics() ,
+              scrollDirection: Axis.vertical,
+              slivers: [
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 24,
+                  ),
                 ),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 20,
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: CategoriesListViewBuilder(),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 28,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 18.0),
-              child: BlocBuilder<RefreshProductCubit,RefreshProductCubitState>(
-                builder: (context, state) {
-                  return Text(
-                    formatData(category),
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 18.0),
+                    child: Text(
+                      'Categories',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
                     ),
-                  );
-                },
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 44,
-            ),
-          ),
-          const ProductsListViewBuilder(),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 32,
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 20,
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: CategoriesListViewBuilder(),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 28,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 18.0),
+                    child: BlocBuilder<RefreshProductCubit,RefreshProductCubitState>(
+                      builder: (context, state) {
+                        return Text(
+                          formatData(category),
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 44,
+                  ),
+                ),
+                const ProductsListViewBuilder(),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 32,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

@@ -3,6 +3,8 @@ import 'package:ag_market/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+final bucketGlobal = PageStorageBucket();
+
 class CategoriesListView extends StatefulWidget {
   const CategoriesListView({super.key, required this.categories});
 
@@ -19,6 +21,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     return SizedBox(
       height: 35,
       child: ListView.builder(
+        key: const PageStorageKey<String>('saveScroll'),
         scrollDirection: Axis.horizontal,
         itemCount: widget.categories.length,
         itemBuilder: (context, index) {
