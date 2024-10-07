@@ -15,9 +15,10 @@ class SelectedCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      animationDuration: const Duration(milliseconds: 300),
       height: 35,
       elevation: 0,
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       color: kPrimaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),

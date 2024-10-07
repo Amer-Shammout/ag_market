@@ -18,15 +18,25 @@ class CustomProductCard extends StatefulWidget {
 
 class _CustomProductCardState extends State<CustomProductCard> {
   Color color = const Color(0xfffdfdfd);
+  double blurRadius = 3;
+  double y = 0;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTapDown: (details) {
+        color = Colors.grey.shade300;
+        setState(() {});
+      },
+      onTapUp: (details) {
+        color = const Color(0xfffdfdfd);
+        setState(() {});
+      },
       onLongPressUp: () {
         color = const Color(0xfffdfdfd);
         setState(() {});
       },
-      onLongPress: () {
+      onLongPressDown: (details) {
         color = Colors.grey.shade200;
         setState(() {});
       },
@@ -42,7 +52,8 @@ class _CustomProductCardState extends State<CustomProductCard> {
                 color: color,
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 3,
+                    blurRadius: blurRadius,
+                    offset: Offset(0, y),
                     color: Colors.black.withOpacity(.25),
                   ),
                 ],

@@ -14,6 +14,7 @@ class UnSelectedCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      animationDuration: const Duration(milliseconds: 300),
       height: 35, 
       splashColor: Colors.black12,
       elevation: 0,
