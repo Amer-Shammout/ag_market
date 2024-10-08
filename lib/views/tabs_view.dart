@@ -38,30 +38,42 @@ class _TabsViewState extends State<TabsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      bottomNavigationBar: GNav(
-        hoverColor: Colors.grey[700]!, // tab button hover color
-        tabBorderRadius: 12,
-        tabActiveBorder: Border.all(
-            color: Colors.black.withOpacity(.7), width: 1), // tab button border
-        tabBorder:
-            Border.all(color: Colors.black, width: 1), // tab button border
-        curve: Curves.easeOutExpo, // tab animation curves
-        duration: const Duration(milliseconds: 900), // tab animation duration
-        gap: 8, // the tab button gap between icon and text
-        color: Colors.grey[800], // unselected icon color
-        activeColor: kPrimaryColor, // selected icon and text color
-        iconSize: 24, // tab button icon size
-        tabBackgroundColor: Colors.transparent, // selected tab background color
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        tabMargin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        selectedIndex: index,
-        onTabChange: onItemTapped,
-        backgroundColor: const Color(
-          0xfffdfdfd,
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: Colors.black12,
+            ),
+          ),
         ),
-        style: GnavStyle.google,
-        haptic: true,
-        tabs: kNavigationBarDestinations,
+        child: GNav(
+          hoverColor: Colors.transparent,
+          tabBorderRadius: 12,
+          tabActiveBorder: Border.all(
+            color: kPrimaryColor,
+            width: 1,
+          ), // tab button border
+          tabBorder: Border.all(
+              color: Colors.grey[400]!, width: 1), // tab button border
+          curve: Curves.easeOutExpo, // tab animation curves
+          duration: const Duration(milliseconds: 500), // tab animation duration
+          gap: 8, // the tab button gap between icon and text
+          color: Colors.grey[400], // unselected icon color
+          activeColor: kPrimaryColor, // selected icon and text color
+          iconSize: 24, // tab button icon size
+          tabBackgroundColor:
+              Colors.transparent, // selected tab background color
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          tabMargin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          selectedIndex: index,
+          onTabChange: onItemTapped,
+          backgroundColor: const Color(
+            0xfffdfdfd,
+          ),
+          style: GnavStyle.google,
+          haptic: true,
+          tabs: kNavigationBarDestinations,
+        ),
       ),
       body: PageView(
         controller: pageController,

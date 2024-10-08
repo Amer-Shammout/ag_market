@@ -22,8 +22,9 @@ class HomeViewCustomAppBar extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-                        SizedBox(height: 10,),
-
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Row(
@@ -48,11 +49,11 @@ class HomeViewCustomAppBar extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             const CategoriesListViewBuilder(),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],
