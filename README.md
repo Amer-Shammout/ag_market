@@ -1,6 +1,6 @@
 # ag_market
 
-A new Flutter project.
+AG Market : It is an application for sale different categories of products
 
 ## Getting Started
 
