@@ -73,16 +73,16 @@ class _CustomProductCardState extends State<CustomProductCard> {
           ),
           Positioned(
             left: 10,
-            bottom: 100,
+            top: -30,
             child: FancyShimmerImage(
               imageUrl: widget.product.image,
-              height: 85,
-              width: 70,
+              height: MediaQuery.sizeOf(context).width > 400 ? 100 : 85,
+              width: MediaQuery.sizeOf(context).width > 400 ? 85 : 70,
             ),
           ),
           Positioned(
             left: 10,
-            bottom: 10,
+            bottom: getBottomHeight(context) ,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -136,5 +136,16 @@ class _CustomProductCardState extends State<CustomProductCard> {
         ],
       ),
     );
+  }
+}
+
+getBottomHeight(context){
+  double width = MediaQuery.sizeOf(context).width;
+  if(width < 326){
+    return 2;
+  } else if(width <340){
+    return 5;
+  } else {
+    return 10;
   }
 }
