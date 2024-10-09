@@ -1,3 +1,4 @@
+import 'package:ag_market/helper/get_responsive_font_size.dart';
 import 'package:ag_market/widgets/categories_list_view_builder.dart';
 import 'package:flutter/material.dart';
 
@@ -32,18 +33,18 @@ class HomeViewCustomAppBar extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       color: Colors.black,
-                      fontSize: 20,
+                      fontSize: getResponsiveFontSize(context, baseFontSize: 20),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.shopping_bag,
                       color: Colors.black,
-                      size: 24,
+                      size: getResponsiveFontSize(context, baseFontSize: 24),
                     ),
                   ),
                 ],

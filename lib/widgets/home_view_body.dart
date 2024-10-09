@@ -1,6 +1,7 @@
 import 'package:ag_market/constants.dart';
 import 'package:ag_market/cubits/refresh_product_cubit/refresh_product_cubit.dart';
 import 'package:ag_market/helper/format_data.dart';
+import 'package:ag_market/helper/get_responsive_font_size.dart';
 import 'package:ag_market/widgets/categories_list_view.dart';
 import 'package:ag_market/widgets/home_view_custom_app_bar.dart';
 import 'package:ag_market/widgets/products_list_view_builder.dart';
@@ -47,8 +48,8 @@ class HomeViewBody extends StatelessWidget {
                         builder: (context, state) {
                           return Text(
                             formatData(category),
-                            style: const TextStyle(
-                              fontSize: 22,
+                            style:  TextStyle(
+                              fontSize: getResponsiveFontSize(context, baseFontSize: 22),
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
                             ),

@@ -1,5 +1,6 @@
 import 'package:ag_market/constants.dart';
 import 'package:ag_market/helper/format_data.dart';
+import 'package:ag_market/helper/get_responsive_font_size.dart';
 import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/widgets/delete_button.dart';
 import 'package:ag_market/widgets/favorite_button.dart';
@@ -76,13 +77,13 @@ class _CustomProductCardState extends State<CustomProductCard> {
             top: -30,
             child: FancyShimmerImage(
               imageUrl: widget.product.image,
-              height: MediaQuery.sizeOf(context).width > 400 ? 100 : 85,
-              width: MediaQuery.sizeOf(context).width > 400 ? 85 : 70,
+              height: getImageHeight(context),
+              width: getImageWidth(context),
             ),
           ),
           Positioned(
             left: 10,
-            bottom: getBottomHeight(context) ,
+            bottom: getBottomHeight(context),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -90,8 +91,8 @@ class _CustomProductCardState extends State<CustomProductCard> {
                   formatData(
                     widget.product.category,
                   ),
-                  style: const TextStyle(
-                    fontSize: 11,
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, baseFontSize: 11),
                     color: kPrimaryColor,
                   ),
                 ),
@@ -100,8 +101,8 @@ class _CustomProductCardState extends State<CustomProductCard> {
                 ),
                 Text(
                   "${widget.product.title.substring(0, 6)}...",
-                  style: const TextStyle(
-                    fontSize: 16,
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, baseFontSize: 16),
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
                   ),
@@ -111,8 +112,8 @@ class _CustomProductCardState extends State<CustomProductCard> {
                 ),
                 Text(
                   r'$' + widget.product.price.toString(),
-                  style: const TextStyle(
-                    fontSize: 18,
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, baseFontSize: 18),
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                   ),
@@ -139,13 +140,35 @@ class _CustomProductCardState extends State<CustomProductCard> {
   }
 }
 
-getBottomHeight(context){
+getBottomHeight(context) {
   double width = MediaQuery.sizeOf(context).width;
-  if(width < 326){
+  if (width < 326) {
     return 2;
-  } else if(width <340){
+  } else if (width < 340) {
     return 5;
   } else {
     return 10;
+  }
+}
+
+getImageWidth(context) {
+  double width = MediaQuery.sizeOf(context).width;
+  if (width > 480) {
+    return 100;
+  } else if (width > 400) {
+    return 85;
+  } else {
+    return 70;
+  }
+}
+
+getImageHeight(context) {
+  double width = MediaQuery.sizeOf(context).width;
+  if (width > 480) {
+    return 120;
+  } else if (width > 400) {
+    return 100;
+  } else {
+    return 85;
   }
 }
