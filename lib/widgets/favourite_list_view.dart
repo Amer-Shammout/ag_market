@@ -4,7 +4,7 @@ import 'package:ag_market/widgets/custom_product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-final GlobalKey<SliverAnimatedGridState> animatedController = GlobalKey();
+final GlobalKey<SliverAnimatedGridState> animatedKey = GlobalKey();
 
 class FavouriteListView extends StatefulWidget {
   const FavouriteListView({super.key});
@@ -36,7 +36,7 @@ class _FavouriteListViewState extends State<FavouriteListView> {
             horizontal: 18.0,
           ),
           sliver: SliverAnimatedGrid(
-            key: animatedController,
+            key: animatedKey,
             initialItemCount: products.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

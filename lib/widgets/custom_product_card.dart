@@ -140,7 +140,7 @@ class _CustomProductCardState extends State<CustomProductCard> {
   }
 }
 
-getBottomHeight(context) {
+double getBottomHeight(context) {
   double width = MediaQuery.sizeOf(context).width;
   if (width < 326) {
     return 2;
@@ -151,7 +151,7 @@ getBottomHeight(context) {
   }
 }
 
-getImageWidth(context) {
+double getImageWidth(context) {
   double width = MediaQuery.sizeOf(context).width;
   if (width > 480) {
     return 100;
@@ -162,7 +162,7 @@ getImageWidth(context) {
   }
 }
 
-getImageHeight(context) {
+double getImageHeight(context) {
   double width = MediaQuery.sizeOf(context).width;
   if (width > 480) {
     return 120;

@@ -5,6 +5,7 @@ import 'package:ag_market/models/product_model.dart';
 import 'package:ag_market/views/tabs_view.dart';
 import 'package:ag_market/widgets/custom_product_card.dart';
 import 'package:ag_market/widgets/favourite_list_view.dart';
+import 'package:ag_market/widgets/favourite_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,7 @@ class DeleteButton extends StatelessWidget {
             BlocProvider.of<DisplayFavouriteProductsCubit>(context).products!;
         int index = products.indexOf(product);
         product.delete();
-        animatedController.currentState!.removeItem(index,
+        animatedKey.currentState!.removeItem(index,
             (context, animation) {
           return ScaleTransition(
             scale: animation,
@@ -48,7 +49,10 @@ class DeleteButton extends StatelessWidget {
       await BlocProvider.of<AddProductToFavouriteCubit>(
             scaffoldKey.currentContext!)
         .addProduct(product);
-    animatedController.currentState!.insertItem(index);
+        List<ProductModel>products = BlocProvider.of<DisplayFavouriteProductsCubit>(
+            scaffoldKey.currentContext!).products ?? [];
+    animatedKey.currentState!.insertItem(products.length);
+    scrollController.animateTo(scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
     BlocProvider.of<DisplayFavouriteProductsCubit>(
             scaffoldKey.currentContext!)
         .displayFavouriteProducts();

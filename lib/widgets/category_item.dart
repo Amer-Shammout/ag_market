@@ -14,7 +14,6 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
       firstChild: SelectedCategoryItem(
-        onPressed: onPressed,
         categoryName: categoryName,
       ),
       secondChild: UnSelectedCategoryItem(

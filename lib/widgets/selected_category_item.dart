@@ -6,11 +6,9 @@ class SelectedCategoryItem extends StatelessWidget {
   const SelectedCategoryItem({
     super.key,
     required this.categoryName,
-    required this.onPressed,
   });
 
   final String categoryName;
-  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class SelectedCategoryItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
-      onPressed: onPressed,
+      onPressed: (){},
       child: Center(
         child: Text(
           formatData(categoryName),
