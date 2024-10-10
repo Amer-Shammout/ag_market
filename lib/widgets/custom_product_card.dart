@@ -25,6 +25,14 @@ class _CustomProductCardState extends State<CustomProductCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onLongPressCancel: () {
+        color = const Color(0xfffdfdfd);
+        setState(() {});
+      },
+      onTapCancel: () {
+        color = const Color(0xfffdfdfd);
+        setState(() {});
+      },
       onTapDown: (details) {
         color = Colors.grey.shade300;
         setState(() {});
