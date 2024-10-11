@@ -22,8 +22,7 @@ class DeleteButton extends StatelessWidget {
             BlocProvider.of<DisplayFavouriteProductsCubit>(context).products!;
         int index = products.indexOf(product);
         product.delete();
-        animatedKey.currentState!.removeItem(index,
-            (context, animation) {
+        animatedKey.currentState!.removeItem(index, (context, animation) {
           return ScaleTransition(
             scale: animation,
             child: CustomProductCard(
@@ -46,15 +45,27 @@ class DeleteButton extends StatelessWidget {
   }
 
   Future<void> undoAction(int index) async {
-      await BlocProvider.of<AddProductToFavouriteCubit>(
+    await BlocProvider.of<AddProductToFavouriteCubit>(
             scaffoldKey.currentContext!)
         .addProduct(product);
-        List<ProductModel>products = BlocProvider.of<DisplayFavouriteProductsCubit>(
-            scaffoldKey.currentContext!).products ?? [];
-    animatedKey.currentState!.insertItem(products.length);
-    scrollController.animateTo(scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
-    BlocProvider.of<DisplayFavouriteProductsCubit>(
-            scaffoldKey.currentContext!)
+    List<ProductModel> products =
+        BlocProvider.of<DisplayFavouriteProductsCubit>(
+                    scaffoldKey.currentContext!)
+                .products ??
+            [];
+    animatedKey.currentState!.insertItem(
+      products.length,
+    );
+    Future.delayed(const Duration(milliseconds: 300), () {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: const Duration(
+          milliseconds: 200,
+        ),
+        curve: Curves.easeIn,
+      );
+    });
+    BlocProvider.of<DisplayFavouriteProductsCubit>(scaffoldKey.currentContext!)
         .displayFavouriteProducts();
   }
 }
